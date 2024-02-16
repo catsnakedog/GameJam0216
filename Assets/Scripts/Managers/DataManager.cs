@@ -24,6 +24,7 @@ public class DataManager
             _jsonManager = new JsonManager();
 
             _jsonManager.LoadJsonData<SaveData>("SaveData", out gameData.SaveData);
+            _jsonManager.LoadJsonData<StageData>("StageData", out gameData.StageData);
 
             go = new GameObject { name = "@Data" };
             UnityEngine.Object.DontDestroyOnLoad(go);

@@ -1,0 +1,51 @@
+[
+ {
+  "Stage": 0,
+  "Door0": 3,
+  "Doo1": 0,
+  "Door2": 0,
+  "Door3": 0
+ },
+ {
+  "Stage": 1,
+  "Door0": 2,
+  "Doo1": 1,
+  "Door2": 1,
+  "Door3": 0
+ },
+ {
+  "Stage": 2,
+  "Door0": 1,
+  "Doo1": 1,
+  "Door2": 1,
+  "Door3": 1
+ },
+ {
+  "Stage": 3,
+  "Door0": 1,
+  "Doo1": 1,
+  "Door2": 3,
+  "Door3": 0
+ },
+ {
+  "Stage": 4,
+  "Door0": 1,
+  "Doo1": 1,
+  "Door2": 2,
+  "Door3": 1
+ },
+ {
+  "Stage": 5,
+  "Door0": 1,
+  "Doo1": 1,
+  "Door2": 1,
+  "Door3": 3
+ },
+ {
+  "Stage": 6,
+  "Door0": 1,
+  "Doo1": 1,
+  "Door2": 2,
+  "Door3": 2
+ }
+]
