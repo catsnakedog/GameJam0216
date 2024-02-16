@@ -17,7 +17,7 @@ public class ResourceManager
         if (Objects.ContainsKey(name))
             return (T)Objects[name];
         else
-            Objects[name] = Resources.Load<T>("name");
+            Objects[name] = Resources.Load<T>(name);
 
         return (T)Objects[name];
     }

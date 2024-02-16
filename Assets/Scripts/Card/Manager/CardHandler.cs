@@ -116,8 +116,8 @@ public class CardHandler : MonoBehaviour
 
     void CardAlignment()
     {
-        DOTween.KillAll();
-        DOTween.Clear();
+        //DOTween.KillAll();
+        //DOTween.Clear();
 
         List<PRS> originCardPRS;
 

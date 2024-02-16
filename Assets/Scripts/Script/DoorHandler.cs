@@ -22,7 +22,7 @@ public class DoorHandler : MonoBehaviour
     private void Awake()
     {
         DoorH = this;
-        Generate();
+        //Generate();
     }
     void Generate()
     {            // ¹® °³¼ö 3, 4, 4 , 5 ,5 , 6 .  

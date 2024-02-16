@@ -17,7 +17,7 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return instance._sound; } }
     public static DataManager DataManager { get { return instance._dataManager; } }
 
-    void Start()
+    void Awake()
     {
         Init();
     }
@@ -38,6 +38,7 @@ public class Managers : MonoBehaviour
 
             s_instance._sound.Init();
             s_instance._dataManager.Init();
+            s_instance._resource.Init();
         }
     }
 }
