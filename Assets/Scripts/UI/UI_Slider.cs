@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UI_Slider : MonoBehaviour
 {
     public Slider BGMSlider, SFXSlider;
+    public Button BackButton;
+    private GameObject _option;
     float BGMvalue,SFXvalue;
 
     private void Awake()
@@ -26,5 +28,10 @@ public class UI_Slider : MonoBehaviour
     public void SetSFX()
     {
         Managers.Sound.SetAudioVolume(SFXvalue, Define.Sound.Sfx);
+    }
+    public void BackButtonpressed()
+    {
+        _option = GameObject.FindWithTag("Option");
+        _option.SetActive(false);
     }
 }
