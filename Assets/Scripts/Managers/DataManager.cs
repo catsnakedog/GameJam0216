@@ -9,11 +9,6 @@ public class DataManager
     JsonManager _jsonManager;
     public GameData GameData;
 
-    void Start()
-    {
-        Init();
-    }
-
     public void Init()
     {
         GameObject go = GameObject.Find("@Data");

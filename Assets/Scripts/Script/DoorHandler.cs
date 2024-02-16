@@ -7,11 +7,18 @@ public class DoorHandler : MonoBehaviour
     public static DoorHandler DoorH;
     public GameObject door;
     public List<GameObject> Prefabs;
-    public List<int> DoorTypes;
     private float positioned = 0;
     public int _CarDoor;
     private int _N;
     private int ThisDoorNumber;
+
+    // 스테이지 문의 순서를 결정하는데 사용하는 코드
+    private int stagenumber = 0;
+    private StageData _stagedata;
+    private int doornumber = 0;
+    public List<int> DoorTypes;
+
+
 
     public bool IsOpenbool = false;
 
@@ -19,14 +26,16 @@ public class DoorHandler : MonoBehaviour
     
     public List<GameObject> Doors = new List<GameObject>();
 
-    private void Awake()
+    private void Start()
     {
         DoorH = this;
-        //Generate();
+        Generate();
+        GetStageData();//임시 디버깅
     }
     void Generate()
     {            // 문 개수 3, 4, 4 , 5 ,5 , 6 .  
                  // 문 종류 1:1:2:0  /  1:1:1:1 / 1:1:3 / 1:1:2  / 1:1:1:3 / 1:1:2:2
+      
         for(int i =0; i<3; i++) // 활성화
         {
             Doors.Add(Instantiate(Prefabs[0], transform));
@@ -65,5 +74,59 @@ public class DoorHandler : MonoBehaviour
         //아이템 클릭 표시할 텍스트 필요
     }
 
+    public void DoorChecking(int type)
+    {
+
+    }
+    
+    public void GetStageData()
+    {
+        _stagedata = Data.GameData.StageData;
+        //스테이지의 도어 갯수를 센다.
+        // doornumber = _stagedata.StageInfo[stagenumber].Door0 + _stagedata.StageInfo[stagenumber].Door1 + _stagedata.StageInfo[stagenumber].Door2 + _stagedata.StageInfo[stagenumber].Door3;
+        
+
+        // 도어수에 맞춰서 리스트에 넣는다.
+        for(int i =0; i<_stagedata.StageInfo[stagenumber].Door0;i++)
+        {
+            DoorTypes.Add(0);
+        }
+        for (int i = 0; i < _stagedata.StageInfo[stagenumber].Door1; i++)
+        {
+            DoorTypes.Add(1);
+        }
+        for (int i = 0; i < _stagedata.StageInfo[stagenumber].Door2; i++)
+        {
+            DoorTypes.Add(2);
+        }
+        for (int i = 0; i < _stagedata.StageInfo[stagenumber].Door3; i++)
+        {
+            DoorTypes.Add(3);
+        }
+
+        // 랜덤으로 섞기
+        DoorTypes = ShuffleList(DoorTypes); // DoorTypes[0]부터 첫번째문
+
+       
+    }
+
+    // 리스트를 섞어주는 함수
+    private List<T> ShuffleList<T>(List<T> list)
+    {
+        int random1, random2;
+        T temp;
+
+        for (int i = 0; i < list.Count; ++i)
+        {
+            random1 = Random.Range(0, list.Count);
+            random2 = Random.Range(0, list.Count);
+
+            temp = list[random1];
+            list[random1] = list[random2];
+            list[random2] = temp;
+        }
+
+        return list;
+    }
 
 }
