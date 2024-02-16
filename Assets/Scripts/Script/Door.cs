@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     public bool DoorOpended=false;
     public int ThisDoor = 0;  // 0 염소, 1 자동차
     public DoorHandler _doorhandler;
-    public int Doortype; // 0, 1 ,2 , 3  
+    public int Doortype; // 0, 1 ,2 , 3    블루, 그린, 레드, 옐로우.
 
    
     // Start is called before the first frame update
