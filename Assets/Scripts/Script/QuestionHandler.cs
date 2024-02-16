@@ -27,13 +27,14 @@ public class QuestionHandler : MonoBehaviour
         }
         return false; // 정답값이 홀
     }
-    // 종류 확인 , 하나 미리 열어보기, 홀짝, 
+    //  하나 미리 열어보기
     public void IsOpen()
     {
         _doorhandler.DoorItemOpen();
         return;
     }
 
+    // 종류 확인
 
     
 
