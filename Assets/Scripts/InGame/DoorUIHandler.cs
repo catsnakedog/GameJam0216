@@ -9,6 +9,8 @@ public class DoorUIHandler : MonoBehaviour
     public static DoorUIHandler DoorUIH;
     public GameObject Door;
     public GameObject DoorBox;
+    public Button LeftDoor;
+    public Button RightDoor;
     private GameObject[] _doors;
     private int beforeSelectDoorIdx;
 
@@ -19,8 +21,25 @@ public class DoorUIHandler : MonoBehaviour
 
     private void Start()
     {
-        DOTween.Init();
+        LeftDoor.onClick.AddListener(MoveToLeftDoor);
+        RightDoor.onClick.AddListener(MoveToRightDoor);
         GenerateDoor();
+    }
+
+    void MoveToLeftDoor()
+    {
+        if (Data.GameData.InGameData.SelectDoorIdx == 0)
+            return;
+        Data.GameData.InGameData.SelectDoorIdx--;
+        ChangeSelectDoor();
+    }
+
+    void MoveToRightDoor()
+    {
+        if (Data.GameData.InGameData.SelectDoorIdx >= DoorHandler.DoorH.DoorTypes.Count - 1)
+            return;
+        Data.GameData.InGameData.SelectDoorIdx++;
+        ChangeSelectDoor();
     }
 
     public void GenerateDoor()
@@ -31,13 +50,12 @@ public class DoorUIHandler : MonoBehaviour
 
         for(int i = 0; i < DoorHandler.DoorH.DoorTypes.Count; i++)
         {
-            _doors[i] = Instantiate(Door, new Vector2(3f, 1.2f), Util.QI, DoorBox.transform);
+            _doors[i] = Instantiate(Door, new Vector2(15f, 1.2f), Util.QI, DoorBox.transform);
             _doors[i].GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>($"Door{DoorHandler.DoorH.DoorTypes[i]}");
         }
 
         Data.GameData.InGameData.SelectDoorIdx = 0;
         beforeSelectDoorIdx = Data.GameData.InGameData.SelectDoorIdx;
-
         SetDoorsPos();
     }
 
@@ -45,11 +63,21 @@ public class DoorUIHandler : MonoBehaviour
     {
         if(beforeSelectDoorIdx < Data.GameData.InGameData.SelectDoorIdx)
         {
+            if (beforeSelectDoorIdx >= DoorHandler.DoorH.DoorTypes.Count - 1)
+            {
+                beforeSelectDoorIdx = DoorHandler.DoorH.DoorTypes.Count - 1;
+                return;
+            }
             beforeSelectDoorIdx++;
             SetDoorsPos();
         }
         else if (beforeSelectDoorIdx > Data.GameData.InGameData.SelectDoorIdx)
         {
+            if (beforeSelectDoorIdx <= DoorHandler.DoorH.DoorTypes.Count - 1)
+            {
+                beforeSelectDoorIdx = DoorHandler.DoorH.DoorTypes.Count - 1;
+                return;
+            }
             beforeSelectDoorIdx--;
             SetDoorsPos();
         }
@@ -66,9 +94,14 @@ public class DoorUIHandler : MonoBehaviour
             if (i == beforeSelectDoorIdx)
                 scale = 1f;
 
-            float changeTime = 0.5f;
-            _doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime);
-            _doors[i].transform.DOScale(scale, changeTime).OnComplete(ChangeSelectDoor);
+            _doors[i].transform.DOKill();
+
+            float changeTime = 0.8f;
+            if (i == _doors.Length - 1)
+                _doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime).OnComplete(ChangeSelectDoor);
+            else
+                _doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime);
+            _doors[i].transform.DOScale(scale, changeTime);
         }
     }
 }

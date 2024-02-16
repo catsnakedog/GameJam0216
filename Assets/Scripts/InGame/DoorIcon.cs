@@ -23,6 +23,7 @@ public class DoorIcon : MonoBehaviour
 
     public void SelectUI()
     {
+        _selectDoorIdx = Data.GameData.InGameData.SelectDoorIdx;
         if(_selectDoorIdx == IconIdx)
             transform.GetChild(0).gameObject.SetActive(true);
         else
