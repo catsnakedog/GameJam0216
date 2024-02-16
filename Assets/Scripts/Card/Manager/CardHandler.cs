@@ -14,7 +14,7 @@ public class CardHandler : MonoBehaviour
     [SerializeField] List<Card> myCard; // 스폰 된 카드들
     [SerializeField] GameObject UseCardCanvas;
 
-    [SerializeField] Transform cardSpawnPoint; // 스폰 위치
+    [SerializeField] public Transform cardSpawnPoint; // 스폰 위치
     [SerializeField] Transform cardLeft; // 왼쪽 끝 기준
     [SerializeField] Transform cardRight; // 오른쪽 끝 기준
 
@@ -259,6 +259,7 @@ public class CardHandler : MonoBehaviour
         {
             if (isUseCard)
             {
+                DoorUIHandler.DoorUIH.StartRabbitText("질문 카드를 내시나요?");
                 DoorUIHandler.DoorUIH.StartPlayerText(card.Item.Description);
                 isDrag = true;
             }
@@ -287,6 +288,7 @@ public class CardHandler : MonoBehaviour
                 DoorUIHandler.DoorUIH.SelectBox.SetActive(true);
             }
             isDrag = false;
+            DoorUIHandler.DoorUIH.StartRabbitText("어떤 문을 선택하시겠습니까?");
             CardAlignment();
         }
     }

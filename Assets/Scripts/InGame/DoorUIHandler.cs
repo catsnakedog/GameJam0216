@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DoorUIHandler : MonoBehaviour
@@ -26,6 +27,7 @@ public class DoorUIHandler : MonoBehaviour
     Coroutine playerC;
     public GameObject YesNo;
     public GameObject SelectBox;
+    public GameObject FadeBox;
 
     void Awake()
     {
@@ -45,7 +47,7 @@ public class DoorUIHandler : MonoBehaviour
 
     public void SelectYes()
     {
-        QuestionHandler.QuestionH.TypeCheck(CardHandler.instance.selectCard.Item.Type);
+        QuestionHandler.QuestionH.UseCard(CardHandler.instance.selectCard.Item.Type);
         SelectBox.SetActive(false);
     }
 
@@ -53,6 +55,7 @@ public class DoorUIHandler : MonoBehaviour
     {
         CardHandler.instance.SpawnSelectCard();
         SelectBox.SetActive(false);
+        CardHandler.instance.isUseCard = true;
     }
 
     public void StartPlayerText(string text)
@@ -77,7 +80,7 @@ public class DoorUIHandler : MonoBehaviour
         {
             sb.Append(s);
             PlayerText.text = sb.ToString();
-            yield return new WaitForSeconds(0.085f);
+            yield return new WaitForSeconds(0.045f);
         }
     }
 
@@ -150,6 +153,7 @@ public class DoorUIHandler : MonoBehaviour
         }
 
         Data.GameData.InGameData.SelectDoorIdx = 0;
+        Data.GameData.InGameData.CardUseCount = 0;
         beforeSelectDoorIdx = Data.GameData.InGameData.SelectDoorIdx;
         if(coroutine != null)
             StopCoroutine(coroutine);
@@ -183,6 +187,10 @@ public class DoorUIHandler : MonoBehaviour
                 StopCoroutine(coroutine);
             coroutine = StartCoroutine(SetDoorsPos());
         }
+        else
+        {
+            IsRun = false;
+        }
     }
 
     IEnumerator SetDoorsPos()
@@ -199,7 +207,7 @@ public class DoorUIHandler : MonoBehaviour
 
             Doors[i].transform.DOKill();
 
-            float changeTime = 0.6f;
+            float changeTime = 0.3f;
             var tween = Doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime);
             Doors[i].transform.DOScale(scale, changeTime);
             if(i == Doors.Length - 1)
@@ -281,5 +289,58 @@ public class DoorUIHandler : MonoBehaviour
             yield return StartCoroutine(YesNoEffect(Managers.Resource.Load<Sprite>("DoorTri")));
         }
         CardHandler.instance.isUseCard = true;
+    }
+
+    public IEnumerator GameEndEffect()
+    {
+        Data.GameData.InGameData.Stage++;
+        for (int i = 0; i < Doors.Length; i++)
+        {
+            if (i != Data.GameData.InGameData.SelectDoorIdx)
+            {
+                StartCoroutine(FadeOutRemove(Doors[i]));
+                yield return new WaitForSeconds(0.4f);
+                DoorIcons[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("No");
+            }
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        Save();
+
+        StartCoroutine(FadeInAndLoadScene());
+    }
+
+    IEnumerator FadeInAndLoadScene()
+    {
+        float fillAmount = 0;
+        Image image = FadeBox.GetComponent<Image>();
+        while (fillAmount < 1)
+        {
+            fillAmount += Time.deltaTime * 1;
+            image.color = new Color(0f, 0f, 0f, fillAmount);
+            yield return null;
+        }
+        SceneManager.LoadScene("Story");
+    }
+
+    void Save()
+    {
+        Data.GameData.SaveData.Stage = Data.GameData.InGameData.Stage;
+        Data.GameData.SaveData.SuccessStack = Data.GameData.InGameData.SuccessStack;
+        Data.GameData.SaveData.MyItem = Data.GameData.InGameData.MyItem;
+        Managers.DataManager.Save(Data.GameData.SaveData);
+    }
+
+    IEnumerator FadeOutRemove(GameObject obj)
+    {
+        float fillAmount = 1;
+        SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
+        while (fillAmount > 0)
+        {
+            fillAmount -= Time.deltaTime * 1.5f;
+            renderer.color = new Color(1f, 1f, 1f, fillAmount);
+            yield return null;
+        }
+        Destroy(obj);
     }
 }

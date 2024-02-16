@@ -41,7 +41,7 @@ MonoBehaviour:
     Description: "\uD0D0\uC9C0 \uCE74\uB4DC\\n\uC62C\uBC14\uB978 \uBB38\uC774 \uD640\uC218
       \uBC88\uC9F8 \uC788\uB294\uC9C0 \uC9DD\uC218 \uBC88\uC9F8 \uC788\uB294\uC9C0
       \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
-    Sprite: {fileID: 21300000, guid: d35dee11de0646e4095f0e69bb99bc60, type: 3}
+    Sprite: {fileID: 21300000, guid: 5df3df1cf5a90ef4ab0a12d01d92021c, type: 3}
     Type: 4
   - Name: "\uBBF8\uB9AC\uBCF4\uAE30"
     Description: "\uBBF8\uB9AC\uBCF4\uAE30\\n\uCE74\uB4DC \uC774 \uBB38\uC774 \uC62C\uBC14\uB978
