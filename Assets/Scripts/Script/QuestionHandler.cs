@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionHandler : MonoBehaviour
 {
@@ -45,10 +46,16 @@ public class QuestionHandler : MonoBehaviour
 
     public void UseCard(int type)
     {
+        Data.GameData.InGameData.CardUseCount++;
         if(type == 0 || type == 1 || type == 2 || type == 3)
             TypeCheck(type);
-        if(type == 5)
+        if(type == 4)
             HolZzakCheck();
+        if (type == 5)
+            ShowDoor();
+
+        if(Data.GameData.InGameData.CardUseCount >= 2)
+            DoorUIHandler.DoorUIH.StartPlayerText("더 이상 질문할 수 없어...");
     }
 
     public void TypeCheck(int type)
@@ -66,10 +73,12 @@ public class QuestionHandler : MonoBehaviour
             if (DoorHandler.DoorH.DoorTypes[i] == type)
                 if (DoorHandler.DoorH.DoorTypes[i] == DoorHandler.DoorH.DoorTypes[DoorHandler.DoorH._CarDoor])
                 {
+                    DoorUIHandler.DoorUIH.StartRabbitText("오 예리하시네요.");
                     DoorUIHandler.DoorUIH.Maybe(list);
                     return;
                 }
         }
+        DoorUIHandler.DoorUIH.StartRabbitText("저런..");
         DoorUIHandler.DoorUIH.Wrong(list);
     }
 
@@ -81,7 +90,7 @@ public class QuestionHandler : MonoBehaviour
         {    
             for(int i = 0; i < DoorHandler.DoorH.DoorTypes.Count; i++)
             {
-                if (i % 2 == 1)
+                if (i % 2 == 0)
                     list.Add(i);
             }
         }
@@ -89,11 +98,25 @@ public class QuestionHandler : MonoBehaviour
         {
             for (int i = 0; i < DoorHandler.DoorH.DoorTypes.Count; i++)
             {
-                if (i % 2 == 0)
+                if (i % 2 == 1)
                     list.Add(i);
             }
         }
-
+        DoorUIHandler.DoorUIH.StartRabbitText("운이 좋으시군요.");
         DoorUIHandler.DoorUIH.Wrong(list);
+    }
+
+    public void ShowDoor()
+    {
+        DoorUIHandler.DoorUIH.StartRabbitText("잘 고르실 수 있겠죠?");
+
+        if (Data.GameData.InGameData.SelectDoorIdx == DoorHandler.DoorH._CarDoor)
+            StartCoroutine(DoorUIHandler.DoorUIH.YesNoEffect(Managers.Resource.Load<Sprite>("DoorYes")));
+        else
+        {
+            DoorUIHandler.DoorUIH.DoorIcons[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("No");
+            StartCoroutine(DoorUIHandler.DoorUIH.YesNoEffect(Managers.Resource.Load<Sprite>("DoorNo")));
+        }
+        CardHandler.instance.isUseCard = true;
     }
 }

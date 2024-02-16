@@ -26,14 +26,60 @@ public class Door : MonoBehaviour
 
     public void GoatDoorOpen()
     {
-        Debug.Log("염소");
-        this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 255, 255);
+        DoorUIHandler.DoorUIH.StartRabbitText("실망입니다.");
+        CardHandler.instance.cardSpawnPoint.transform.position = new Vector2(0, 2);
+        gameObject.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("DoorFail");
+        CardHandler.instance.isUseCard = false;
+        DoorUIHandler.DoorUIH.IsRun = true;
+        StartCoroutine(DoorUIHandler.DoorUIH.GameEndEffect());
     }
 
     public void CarDoorOpen()
     {
-        Debug.Log("자동차");
-        this.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+        Data.GameData.InGameData.SuccessStack++;
+        CardHandler.instance.cardSpawnPoint.transform.position = new Vector2(0, 2);
+        switch(Data.GameData.InGameData.SuccessStack)
+        {
+            case 1:
+                DoorUIHandler.DoorUIH.StartRabbitText("머리가 장식이 아니였군요.");
+                break;
+            case 2:
+                DoorUIHandler.DoorUIH.StartRabbitText("잘 하셨습니다.");
+                break;
+            case 3:
+                DoorUIHandler.DoorUIH.StartRabbitText("대단하네요.");
+                break;
+            case 4:
+                DoorUIHandler.DoorUIH.StartRabbitText("고작 이 정도인가?");
+                break;
+            case 5:
+                DoorUIHandler.DoorUIH.StartRabbitText("당신이라면 해낼 줄 알았습니다.");
+                break;
+            case 6:
+                DoorUIHandler.DoorUIH.StartRabbitText("아주 훌륭합니다.");
+                break;
+        }
+        gameObject.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("DoorClear");
+        CardHandler.instance.isUseCard = false;
+        DoorUIHandler.DoorUIH.IsRun = true;
+        StartCoroutine(DoorUIHandler.DoorUIH.GameEndEffect());
+    }
+
+    void GetRandomCard()
+    {
+        int num = Random.Range(1, 101);
+        if (num <= 21)
+            CardHandler.instance.FindAndAddCard(0);
+        else if (num <= 42)
+            CardHandler.instance.FindAndAddCard(1);
+        else if (num <= 63)
+            CardHandler.instance.FindAndAddCard(2);
+        else if (num <= 84)
+            CardHandler.instance.FindAndAddCard(3);
+        else if (num <= 96)
+            CardHandler.instance.FindAndAddCard(4);
+        else
+            CardHandler.instance.FindAndAddCard(5);
     }
 
     public void OpenDoor()

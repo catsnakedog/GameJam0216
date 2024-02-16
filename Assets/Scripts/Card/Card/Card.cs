@@ -39,6 +39,8 @@ public class Card : MonoBehaviour
             return;
         if (DoorUIHandler.DoorUIH.IsRun)
             return;
+        if (Data.GameData.InGameData.CardUseCount >= 2)
+            return;
         CardHandler.instance.CardMouseDown(this);
     }
 

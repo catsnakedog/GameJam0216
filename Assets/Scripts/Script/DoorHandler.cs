@@ -45,6 +45,7 @@ public class DoorHandler : MonoBehaviour
 
     public void MohntiholAction()
     {
+        DoorUIHandler.DoorUIH.StartRabbitText("올바르지 못한 문 하나를 보여드리겠습니다.");
         while (true)
         {
             _N = Random.Range(0, DoorTypes.Count);
