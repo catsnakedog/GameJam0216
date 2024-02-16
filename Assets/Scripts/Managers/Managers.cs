@@ -17,7 +17,7 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return instance._sound; } }
     public static DataManager DataManager { get { return instance._dataManager; } }
 
-    void Start()
+    void Awake()
     {
         Init();
     }

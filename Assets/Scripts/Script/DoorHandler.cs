@@ -26,11 +26,11 @@ public class DoorHandler : MonoBehaviour
     
     public List<GameObject> Doors = new List<GameObject>();
 
-    private void Awake()
+    private void Start()
     {
         DoorH = this;
         Generate();
-        // 현재 오류GetStageData();//임시 디버깅
+        GetStageData();//임시 디버깅
     }
     void Generate()
     {            // 문 개수 3, 4, 4 , 5 ,5 , 6 .  
@@ -81,7 +81,7 @@ public class DoorHandler : MonoBehaviour
     
     public void GetStageData()
     {
-        _stagedata = Managers.DataManager.GameData.StageData;
+        _stagedata = Data.GameData.StageData;
         //스테이지의 도어 갯수를 센다.
         // doornumber = _stagedata.StageInfo[stagenumber].Door0 + _stagedata.StageInfo[stagenumber].Door1 + _stagedata.StageInfo[stagenumber].Door2 + _stagedata.StageInfo[stagenumber].Door3;
         
@@ -105,9 +105,9 @@ public class DoorHandler : MonoBehaviour
         }
 
         // 랜덤으로 섞기
-        DoorTypes = ShuffleList(DoorTypes);
+        DoorTypes = ShuffleList(DoorTypes); // DoorTypes[0]부터 첫번째문
 
-        Debug.Log(DoorTypes);
+       
     }
 
     // 리스트를 섞어주는 함수

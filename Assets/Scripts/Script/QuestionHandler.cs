@@ -35,7 +35,11 @@ public class QuestionHandler : MonoBehaviour
     }
 
     // 종류 확인
-
+    public void IsCheckDoor(int type = 0)
+    {
+        _doorhandler.DoorChecking(type);
+        return;
+    }
     
 
 
