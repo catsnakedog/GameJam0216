@@ -6,7 +6,7 @@ public class DoorHandler : MonoBehaviour
 {
     public static DoorHandler DoorH;
     public GameObject door;
-    public List<GameObject> Prefabs;
+    public List<GameObject> I;
     private float positioned = 0;
     public int _CarDoor;
     private int _N;
