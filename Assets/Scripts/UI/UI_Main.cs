@@ -12,7 +12,7 @@ public class UI_Main : MonoBehaviour
 
     public void StartButtonpressed()
     {
-        SceneManager.LoadScene("Scenes/InGame");
+        UI_SceneManager.Instance.ChangeScene("InGame");
     }
     public void GameOverButtionpressed()
     {
