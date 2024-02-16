@@ -19,16 +19,6 @@ public class DoorIcon : MonoBehaviour
 
     public void SetColorAndShape()
     {
-        switch (ColorType)
-        {
-            case "1":
-                break;
-        }
-        switch (ShapeType)
-        {
-            case "1":
-                break;
-        }
     }
 
     public void SelectUI()
