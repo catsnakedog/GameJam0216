@@ -30,12 +30,12 @@ public class CardHandler : MonoBehaviour
         prs = new PRS(new Vector3(), Util.QI, Vector3.zero);
         DOTween.SetTweensCapacity(2000, 100);
 
-        FindAndAddCard("Test1");
-        FindAndAddCard("Test1");
-        FindAndAddCard("Test1");
-        FindAndAddCard("Test1");
-        FindAndAddCard("Test1");
-        FindAndAddCard("Test1");
+        FindAndAddCard(0);
+        FindAndAddCard(1);
+        FindAndAddCard(2);
+        FindAndAddCard(3);
+        FindAndAddCard(4);
+        FindAndAddCard(5);
     }
 
     public void GameReset()
@@ -69,7 +69,7 @@ public class CardHandler : MonoBehaviour
         }
     }
 
-    public void FindAndAddCard(string name)
+    public void FindAndAddCard(int type)
     {
         var cardObject = Instantiate(cardPrefab, cardSpawnPoint.position, Util.QI);
         var card = cardObject.GetComponent<Card>();
@@ -78,7 +78,7 @@ public class CardHandler : MonoBehaviour
 
         foreach(Item item in itemSO.Items)
         {
-            if(item.Name == name)
+            if(item.Type == type)
             {
                 targetItem = item;
                 break;
@@ -265,6 +265,7 @@ public class CardHandler : MonoBehaviour
         {
             if (isUseCard)
             {
+                DoorUIHandler.DoorUIH.StartPlayerText(card.Item.Description);
                 isDrag = true;
             }
         }
@@ -279,14 +280,33 @@ public class CardHandler : MonoBehaviour
     {
         if(isDrag)
         {
-            if (mousePos.y >= -1.6f)
+            if (mousePos.y >= -1.1f)
             {
+                if (DoorUIHandler.DoorUIH.IsRun)
+                    return;
                 isDrag = false;
                 isUseCard = false;
+                StartCoroutine(FadeOutRemove(card.gameObject));
+                myCard.Remove(card);
+                SetOriginOrder();
+                CardAlignment();
             }
             isDrag = false;
             CardAlignment();
         }
+    }
+
+    IEnumerator FadeOutRemove(GameObject obj)
+    {
+        float fillAmount = 1;
+        SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
+        while(fillAmount > 0)
+        {
+            fillAmount -= Time.deltaTime * 1.5f;
+            renderer.color = new Color(1f, 1f, 1f, fillAmount);
+            yield return null;
+        }
+        Destroy(obj);
     }
 
     private void Update()
@@ -297,11 +317,11 @@ public class CardHandler : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
             mousePos.z = -200;
-            mousePos.y += 1f;
+            mousePos.y += 1.5f;
 
             prs.pos = mousePos;
             prs.rot = Util.QI;
-            prs.scale = Vector3.one;
+            prs.scale = Vector3.one * 1.2f;
 
             selectCard.MoveTransform(prs, true, 0.15f);
         }

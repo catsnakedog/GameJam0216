@@ -13,7 +13,39 @@ MonoBehaviour:
   m_Name: ItemSO
   m_EditorClassIdentifier: 
   Items:
-  - Name: Test1
-    Description: 
-    Sprite: {fileID: 21300000, guid: d35dee11de0646e4095f0e69bb99bc60, type: 3}
+  - Name: "\uBB38\uC5911"
+    Description: "\uBB38\uC591 \uCE74\uB4DC \uC62C\uBC14\uB978 \uBB38\uC774 \uD574\uB2F9
+      \uBB38\uC591\uC744 \uAC00\uC9C0\uACE0 \uC788\uB294\uC9C0 \uC544\uB2CC\uC9C0
+      \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+    Sprite: {fileID: 21300000, guid: d3de2a055a7b4c145bba465c989c31bc, type: 3}
     Type: 0
+  - Name: "\uBB38\uC5912"
+    Description: "\uBB38\uC591 \uCE74\uB4DC \uC62C\uBC14\uB978 \uBB38\uC774 \uD574\uB2F9
+      \uBB38\uC591\uC744 \uAC00\uC9C0\uACE0 \uC788\uB294\uC9C0 \uC544\uB2CC\uC9C0
+      \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+    Sprite: {fileID: 21300000, guid: 2a05651b6139f9c4c9ac9c731b560f96, type: 3}
+    Type: 1
+  - Name: "\uBB38\uC5913"
+    Description: "\uBB38\uC591 \uCE74\uB4DC \uC62C\uBC14\uB978 \uBB38\uC774 \uD574\uB2F9
+      \uBB38\uC591\uC744 \uAC00\uC9C0\uACE0 \uC788\uB294\uC9C0 \uC544\uB2CC\uC9C0
+      \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+    Sprite: {fileID: 21300000, guid: 766f449085bcc7a43abbe87bc17668a3, type: 3}
+    Type: 2
+  - Name: "\uBB38\uC5914"
+    Description: "\uBB38\uC591 \uCE74\uB4DC \uC62C\uBC14\uB978 \uBB38\uC774 \uD574\uB2F9
+      \uBB38\uC591\uC744 \uAC00\uC9C0\uACE0 \uC788\uB294\uC9C0 \uC544\uB2CC\uC9C0
+      \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+    Sprite: {fileID: 21300000, guid: 1a3e7001246e87b4f812316d04e6a495, type: 3}
+    Type: 3
+  - Name: "\uD640\uC9DD"
+    Description: "\uD0D0\uC9C0 \uCE74\uB4DC \uC62C\uBC14\uB978 \uBB38\uC774 \uD640\uC218
+      \uBC88\uC9F8 \uC788\uB294\uC9C0 \uC9DD\uC218 \uBC88\uC9F8 \uC788\uB294\uC9C0
+      \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+    Sprite: {fileID: 21300000, guid: d35dee11de0646e4095f0e69bb99bc60, type: 3}
+    Type: 4
+  - Name: "\uBBF8\uB9AC\uBCF4\uAE30"
+    Description: "\uBBF8\uB9AC\uBCF4\uAE30 \uCE74\uB4DC \uC774 \uBB38\uC774 \uC62C\uBC14\uB978
+      \uBB38\uC778\uC9C0 \uC62C\uBC14\uB974\uC9C0 \uC54A\uC740 \uBB38\uC778\uC9C0
+      \uC54C \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+    Sprite: {fileID: 21300000, guid: 1e5a3461d4e697843839af50e244d807, type: 3}
+    Type: 5

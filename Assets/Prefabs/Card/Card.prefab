@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backRenderer: {fileID: 1142508374581535920}
-  sortingLayerName: DEfault
+  sortingLayerName: Card
 --- !u!61 &-9187888205880595032
 BoxCollider2D:
   m_ObjectHideFlags: 0

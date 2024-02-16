@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,10 @@ public class DoorUIHandler : MonoBehaviour
     private int beforeSelectDoorIdx;
     public bool IsRun;
     Coroutine coroutine;
+    public TMP_Text PlayerText;
+    public TMP_Text RabbitText;
+    Coroutine rabbitC;
+    Coroutine playerC;
 
     void Awake()
     {
@@ -29,6 +35,43 @@ public class DoorUIHandler : MonoBehaviour
         LeftDoor.onClick.AddListener(MoveToLeftDoor);
         RightDoor.onClick.AddListener(MoveToRightDoor);
         IsRun = false;
+
+        StartRabbitText("어떤 문을 선택하시겠습니까?");
+    }
+
+    public void StartPlayerText(string text)
+    {
+        if (playerC != null)
+            StopCoroutine(playerC);
+        playerC = StartCoroutine(SetPlayerText(text));
+    }
+    public void StartRabbitText(string text)
+    {
+        if (rabbitC != null)
+            StopCoroutine(rabbitC);
+        rabbitC = StartCoroutine(SetRabbitText(text));
+    }
+
+    public IEnumerator SetPlayerText(string text)
+    {
+        StringBuilder sb = new();
+        foreach(char s in text)
+        {
+            sb.Append(s);
+            PlayerText.text = sb.ToString();
+            yield return new WaitForSeconds(0.085f);
+        }
+    }
+
+    public IEnumerator SetRabbitText(string text)
+    {
+        StringBuilder sb = new();
+        foreach (char s in text)
+        {
+            sb.Append(s);
+            RabbitText.text = sb.ToString();
+            yield return new WaitForSeconds(0.125f);
+        }
     }
 
     void MoveToLeftDoor()
