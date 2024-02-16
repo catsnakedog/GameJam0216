@@ -12,12 +12,17 @@ public class CardHandler : MonoBehaviour
     [SerializeField] ItemSO itemSO; // 카드 정보
     [SerializeField] GameObject cardPrefab; // 카드 원본
     [SerializeField] List<Card> myCard; // 스폰 된 카드들
+    [SerializeField] GameObject UseCardCanvas;
 
     [SerializeField] Transform cardSpawnPoint; // 스폰 위치
     [SerializeField] Transform cardLeft; // 왼쪽 끝 기준
     [SerializeField] Transform cardRight; // 오른쪽 끝 기준
 
+    bool isDrag;
+    Vector3 mousePos;
+    PRS prs;
     Card selectCard;
+    [SerializeField] public bool isUseCard;
 
     private void Start()
     {
@@ -47,10 +52,8 @@ public class CardHandler : MonoBehaviour
         myCard.Clear();
 
         selectCard = null;
-        costLow.SetActive(false);
         isDrag = false;
         isUseCard = false;
-        isBatCard = false;
     }
 
     public void SpawnSelectCard(string name)
@@ -89,9 +92,6 @@ public class CardHandler : MonoBehaviour
         SetOriginOrder();
         CardAlignment();
     }
-
-    [SerializeField]
-    public GameObject costLow;
 
     public void DeleteCard()
     {
@@ -262,45 +262,20 @@ public class CardHandler : MonoBehaviour
         return results;
     }
 
-    bool isDrag;
-    Vector3 mousePos;
-    PRS prs;
-
-    private void Update()
-    {
-        if (isDrag)
-        {
-            mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            mousePos.z = -200;
-            mousePos.y += 1f;
-
-            prs.pos = mousePos;
-            prs.rot = Util.QI;
-            prs.scale = Vector3.one * 0.19f;
-
-            selectCard.MoveTransform(prs, true, 0.15f);
-        }
-    }
-
-    [SerializeField] public bool isUseCard;
-    [SerializeField] public bool isBatCard;
-
     public void CardMouseDown(Card card)
     {
         if (card == selectCard)
         {
             if (isUseCard)
             {
-                isDrag = true;
+                Instantiate(UseCardCanvas);
             }
         }
         else
-            isDrag = false;
-
-        selectCard = card;
-        TargetCardAlignment(card);
+        {
+            selectCard = card;
+            TargetCardAlignment(card);
+        }
     }
 
     public void CardMouseUp(Card card)
