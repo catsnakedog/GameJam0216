@@ -40,7 +40,7 @@ public class Door : MonoBehaviour
     {
         DoorUIHandler.DoorUIH.DoorIcons[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("No");
         DoorOpended = true;
-        StartCoroutine(DoorEffect(Managers.Resource.Load<Sprite>("No")));
+        StartCoroutine(DoorEffect(Managers.Resource.Load<Sprite>("DoorFail")));
     }
 
     IEnumerator DoorEffect(Sprite sprite)

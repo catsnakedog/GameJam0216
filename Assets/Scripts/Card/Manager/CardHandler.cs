@@ -21,7 +21,7 @@ public class CardHandler : MonoBehaviour
     bool isDrag;
     Vector3 mousePos;
     PRS prs;
-    Card selectCard;
+    public Card selectCard;
     [SerializeField] public bool isUseCard;
 
     private void Start()
@@ -56,17 +56,9 @@ public class CardHandler : MonoBehaviour
         isUseCard = false;
     }
 
-    public void SpawnSelectCard(string name)
+    public void SpawnSelectCard()
     {
-        Item selectCard;
-        foreach(Item item in itemSO.Items)
-        {
-            if(item.Name == name)
-            {
-                selectCard = item;
-                break;
-            }
-        }
+        FindAndAddCard(selectCard.Item.Type);
     }
 
     public void FindAndAddCard(int type)
@@ -292,6 +284,7 @@ public class CardHandler : MonoBehaviour
                 myCard.Remove(card);
                 SetOriginOrder();
                 CardAlignment();
+                DoorUIHandler.DoorUIH.SelectBox.SetActive(true);
             }
             isDrag = false;
             CardAlignment();

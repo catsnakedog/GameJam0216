@@ -25,6 +25,7 @@ public class DoorUIHandler : MonoBehaviour
     Coroutine rabbitC;
     Coroutine playerC;
     public GameObject YesNo;
+    public GameObject SelectBox;
 
     void Awake()
     {
@@ -35,9 +36,23 @@ public class DoorUIHandler : MonoBehaviour
     {
         LeftDoor.onClick.AddListener(MoveToLeftDoor);
         RightDoor.onClick.AddListener(MoveToRightDoor);
+        SelectBox.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(SelectYes);
+        SelectBox.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(SelectNo);
         IsRun = false;
 
         StartRabbitText("어떤 문을 선택하시겠습니까?");
+    }
+
+    public void SelectYes()
+    {
+        QuestionHandler.QuestionH.TypeCheck(CardHandler.instance.selectCard.Item.Type);
+        SelectBox.SetActive(false);
+    }
+
+    public void SelectNo()
+    {
+        CardHandler.instance.SpawnSelectCard();
+        SelectBox.SetActive(false);
     }
 
     public void StartPlayerText(string text)
@@ -228,5 +243,43 @@ public class DoorUIHandler : MonoBehaviour
             yield return null;
         }
         YesNo.SetActive(false);
+    }
+
+
+    public void Wrong(List<int> list)
+    {
+        StartCoroutine(WrongAll(list));
+    }
+    public IEnumerator WrongAll(List<int> list)
+    {
+        foreach(int i in list)
+        {
+            Debug.Log(i);
+            IsRun = true;
+            Data.GameData.InGameData.SelectDoorIdx = i;
+            DoorUIHandler.DoorUIH.ChangeSelectDoor();
+            yield return new WaitUntil(() => !IsRun);
+            yield return StartCoroutine(YesNoEffect(Managers.Resource.Load<Sprite>("DoorNo")));
+            DoorUIHandler.DoorUIH.DoorIcons[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("No");
+        }
+        CardHandler.instance.isUseCard = true;
+    }
+
+    public void Maybe(List<int> list)
+    {
+        StartCoroutine(MaybeAll(list));
+    }
+    public IEnumerator MaybeAll(List<int> list)
+    {
+        foreach (int i in list)
+        {
+            Debug.Log(i);
+            IsRun = true;
+            Data.GameData.InGameData.SelectDoorIdx = i;
+            DoorUIHandler.DoorUIH.ChangeSelectDoor();
+            yield return new WaitUntil(() => !IsRun);
+            yield return StartCoroutine(YesNoEffect(Managers.Resource.Load<Sprite>("DoorTri")));
+        }
+        CardHandler.instance.isUseCard = true;
     }
 }
