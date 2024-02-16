@@ -5,17 +5,11 @@ using UnityEngine;
 public class DoorHandler : MonoBehaviour
 {
     public static DoorHandler DoorH;
-    public GameObject door;
-    public List<GameObject> I;
-    private float positioned = 0;
     public int _CarDoor;
     private int _N;
-    private int ThisDoorNumber;
 
     // 스테이지 문의 순서를 결정하는데 사용하는 코드
-    private int stagenumber = 0;
     private StageData _stagedata;
-    private int doornumber = 0;
     public List<int> DoorTypes;
 
 
@@ -23,12 +17,11 @@ public class DoorHandler : MonoBehaviour
     public bool IsOpenbool = false;
 
     public bool FirstClicked = false;
-    
-    public List<GameObject> Doors = new List<GameObject>();
 
     private void Start()
     {
         DoorH = this;
+        FirstClicked = false;
         GetStageData();//임시 디버깅
     }
     /*
@@ -54,12 +47,13 @@ public class DoorHandler : MonoBehaviour
     {
         while (true)
         {
-            _N = Random.Range(0, Doors.Count);
-            if (_CarDoor != _N && Doors[_N].transform.GetChild(0).GetComponent<Door>().ThisDoor == 0&&_N!=ThisDoorNumber) // 랜덤이 자동차가 아니고, 랜덤이 염소여야 하고, 랜덤이 내가 고른 문이 아닐때
+            _N = Random.Range(0, DoorTypes.Count);
+            if (_CarDoor != _N && _N!=Data.GameData.InGameData.SelectDoorIdx) // 랜덤이 자동차가 아니고, 랜덤이 염소여야 하고, 랜덤이 내가 고른 문이 아닐때
             {
                 FirstClicked = true;
-                Doors[_N].transform.GetChild(0).GetComponent<Door>().OnMouseDown(); // 클릭 처리, 이때 게임오버안되게 작동해야함.
-                return;
+                Data.GameData.InGameData.SelectDoorIdx = _N;
+                StartCoroutine(DoorUIHandler.DoorUIH.OpenOneWrongDoor());
+                break;
             }
         }
     }
@@ -84,22 +78,23 @@ public class DoorHandler : MonoBehaviour
         _stagedata = Data.GameData.StageData;
         //스테이지의 도어 갯수를 센다.
         // doornumber = _stagedata.StageInfo[stagenumber].Door0 + _stagedata.StageInfo[stagenumber].Door1 + _stagedata.StageInfo[stagenumber].Door2 + _stagedata.StageInfo[stagenumber].Door3;
-        
+
+        Data.GameData.InGameData.Stage = 5;
 
         // 도어수에 맞춰서 리스트에 넣는다.
-        for(int i =0; i<_stagedata.StageInfo[stagenumber].Door0;i++)
+        for(int i =0; i<_stagedata.StageInfo[Data.GameData.InGameData.Stage].Door0;i++)
         {
             DoorTypes.Add(0);
         }
-        for (int i = 0; i < _stagedata.StageInfo[stagenumber].Door1; i++)
+        for (int i = 0; i < _stagedata.StageInfo[Data.GameData.InGameData.Stage].Door1; i++)
         {
             DoorTypes.Add(1);
         }
-        for (int i = 0; i < _stagedata.StageInfo[stagenumber].Door2; i++)
+        for (int i = 0; i < _stagedata.StageInfo[Data.GameData.InGameData.Stage].Door2; i++)
         {
             DoorTypes.Add(2);
         }
-        for (int i = 0; i < _stagedata.StageInfo[stagenumber].Door3; i++)
+        for (int i = 0; i < _stagedata.StageInfo[Data.GameData.InGameData.Stage].Door3; i++)
         {
             DoorTypes.Add(3);
         }
@@ -109,7 +104,7 @@ public class DoorHandler : MonoBehaviour
         DoorTypes = ShuffleList(DoorTypes); // DoorTypes[0]부터 첫번째문   
         _CarDoor = Random.Range(0, DoorTypes.Count); // 문중 _CarDoor번째 문이 정답.
 
-
+        DoorUIHandler.DoorUIH.GenerateDoor();
     }
 
     // 리스트를 섞어주는 함수

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Door : MonoBehaviour
     public int ThisDoor = 0;  // 0 염소, 1 자동차
     public DoorHandler _doorhandler;
     public int Doortype; // 0, 1 ,2 , 3    블루, 그린, 레드, 옐로우.
+    public bool isActive;
 
    
     // Start is called before the first frame update
@@ -34,8 +36,22 @@ public class Door : MonoBehaviour
         this.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
     }
 
+    public void OpenDoor()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        DoorUIHandler.DoorUIH.DoorIcons[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("No");
+        DoorOpended = true;
+    }
+
     public void OnMouseDown()
     {
+        if (DoorOpended)
+            return;
+        if (DoorUIHandler.DoorUIH.Doors[Data.GameData.InGameData.SelectDoorIdx] != gameObject)
+            return;
+        if (DoorUIHandler.DoorUIH.IsRun)
+            return;
+
         if(!_doorhandler.FirstClicked) // 첫번째 클릭이면, 
         {
             _doorhandler.MohntiholAction();
@@ -67,11 +83,5 @@ public class Door : MonoBehaviour
         {
             CarDoorOpen();
         }
-
-        if(_doorhandler.FirstClicked==true)
-        {
-            Debug.Log("게임오버");
-        }
     }
- 
 }
