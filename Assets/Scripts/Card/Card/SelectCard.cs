@@ -17,24 +17,6 @@ public class SelectCard : MonoBehaviour
         oriPrs = new PRS(Vector3.zero, Util.QI, Vector3.zero * 0.33f);
     }
 
-    private void Update()
-    {
-        if (isDrag)
-        {
-            mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            mousePos.z = -200;
-            mousePos.y += 0.8f;
-
-            prs.pos = mousePos;
-            prs.rot = Util.QI;
-            prs.scale = Vector3.one * 0.66f;
-
-            MoveTransform(prs, true, 0.15f);
-        }
-    }
-
     void OnMouseDown()
     {
         oriPrs.pos = transform.position;
@@ -43,20 +25,6 @@ public class SelectCard : MonoBehaviour
         isDrag = true;
     }
 
-    void OnMouseUp()
-    {
-        if(isDrag)
-        {
-            isDrag = false;
-            MoveTransform(oriPrs, true, 0.2f);
-
-            if (mousePos.y - 0.8f < -3.5f)
-            {
-                CardHandler.instance.FindAndAddCard(item.Name);
-                Destroy(gameObject);
-            }
-        }
-    }
 
     [SerializeField] SpriteRenderer card;
 

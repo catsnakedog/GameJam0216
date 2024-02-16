@@ -134,9 +134,6 @@ public class CardHandler : MonoBehaviour
 
     void TargetCardAlignment(Card card)
     {
-        DOTween.KillAll();
-        DOTween.Clear();
-
         List<PRS> originCardPRS;
 
         originCardPRS = TargetRoundAlignment(cardLeft, cardRight, myCard.Count, 0.5f, Vector3.one, card);
@@ -268,7 +265,7 @@ public class CardHandler : MonoBehaviour
         {
             if (isUseCard)
             {
-                Instantiate(UseCardCanvas);
+                isDrag = true;
             }
         }
         else
@@ -282,13 +279,31 @@ public class CardHandler : MonoBehaviour
     {
         if(isDrag)
         {
-            if ((mousePos.y -= 1f) >= 0f)
+            if (mousePos.y >= -1.6f)
             {
                 isDrag = false;
                 isUseCard = false;
             }
             isDrag = false;
             CardAlignment();
+        }
+    }
+
+    private void Update()
+    {
+        if (isDrag)
+        {
+            mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            mousePos.z = -200;
+            mousePos.y += 1f;
+
+            prs.pos = mousePos;
+            prs.rot = Util.QI;
+            prs.scale = Vector3.one;
+
+            selectCard.MoveTransform(prs, true, 0.15f);
         }
     }
 }
