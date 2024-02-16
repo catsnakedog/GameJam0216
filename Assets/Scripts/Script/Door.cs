@@ -28,6 +28,7 @@ public class Door : MonoBehaviour
     {
         DoorUIHandler.DoorUIH.StartRabbitText("실망입니다.");
         CardHandler.instance.cardSpawnPoint.transform.position = new Vector2(0, 2);
+        GetRandomCard();
         gameObject.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("DoorFail");
         CardHandler.instance.isUseCard = false;
         DoorUIHandler.DoorUIH.IsRun = true;
@@ -38,7 +39,9 @@ public class Door : MonoBehaviour
     {
         Data.GameData.InGameData.SuccessStack++;
         CardHandler.instance.cardSpawnPoint.transform.position = new Vector2(0, 2);
-        switch(Data.GameData.InGameData.SuccessStack)
+        GetRandomCard();
+        GetRandomCard();
+        switch (Data.GameData.InGameData.SuccessStack)
         {
             case 1:
                 DoorUIHandler.DoorUIH.StartRabbitText("머리가 장식이 아니였군요.");

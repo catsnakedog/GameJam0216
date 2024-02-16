@@ -1,0 +1,74 @@
+{
+    "OptionData": {
+        "BgmVolume": 0.5,
+        "SfxVolume": 0.5
+    },
+    "Stage": 6,
+    "MyItem": [
+        {
+            "Name": "문양1",
+            "Description": "문양 카드\\n올바른 문이 해당 문양을 가지고 있는지 아닌지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40830
+            },
+            "Type": 0
+        },
+        {
+            "Name": "문양2",
+            "Description": "문양 카드\\n올바른 문이 해당 문양을 가지고 있는지 아닌지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40846
+            },
+            "Type": 1
+        },
+        {
+            "Name": "문양3",
+            "Description": "문양 카드\\n올바른 문이 해당 문양을 가지고 있는지 아닌지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40834
+            },
+            "Type": 2
+        },
+        {
+            "Name": "문양4",
+            "Description": "문양 카드\\n올바른 문이 해당 문양을 가지고 있는지 아닌지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40850
+            },
+            "Type": 3
+        },
+        {
+            "Name": "홀짝",
+            "Description": "탐지 카드\\n올바른 문이 홀수 번째 있는지 짝수 번째 있는지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40838
+            },
+            "Type": 4
+        },
+        {
+            "Name": "미리보기",
+            "Description": "미리보기\\n카드 이 문이 올바른 문인지 올바르지 않은 문인지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40842
+            },
+            "Type": 5
+        },
+        {
+            "Name": "문양4",
+            "Description": "문양 카드\\n올바른 문이 해당 문양을 가지고 있는지 아닌지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40850
+            },
+            "Type": 3
+        },
+        {
+            "Name": "문양1",
+            "Description": "문양 카드\\n올바른 문이 해당 문양을 가지고 있는지 아닌지 알 수 있습니다. ",
+            "Sprite": {
+                "instanceID": 40830
+            },
+            "Type": 0
+        }
+    ],
+    "SuccessStack": 1
+}

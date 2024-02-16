@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DoorUIHandler : MonoBehaviour
@@ -26,6 +27,7 @@ public class DoorUIHandler : MonoBehaviour
     Coroutine playerC;
     public GameObject YesNo;
     public GameObject SelectBox;
+    public GameObject FadeBox;
 
     void Awake()
     {
@@ -304,6 +306,21 @@ public class DoorUIHandler : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         Save();
+
+        StartCoroutine(FadeInAndLoadScene());
+    }
+
+    IEnumerator FadeInAndLoadScene()
+    {
+        float fillAmount = 0;
+        Image image = FadeBox.GetComponent<Image>();
+        while (fillAmount < 1)
+        {
+            fillAmount += Time.deltaTime * 1;
+            image.color = new Color(0f, 0f, 0f, fillAmount);
+            yield return null;
+        }
+        SceneManager.LoadScene("Story");
     }
 
     void Save()
