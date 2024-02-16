@@ -6,13 +6,16 @@ using UnityEngine;
 public class InGameData
 {
     public List<Item> MyItem;
+    public int SelectDoorIdx;
 
     public InGameData()
     {
         MyItem = new List<Item>();
+        SelectDoorIdx = 0;
     }
-    public InGameData(List<Item> myItem)
+    public InGameData(List<Item> myItem, int selectDoorIdx)
     {
         MyItem = myItem;
+        SelectDoorIdx = selectDoorIdx;
     }
 }
