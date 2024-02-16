@@ -29,9 +29,9 @@ public class DoorHandler : MonoBehaviour
     private void Start()
     {
         DoorH = this;
-        Generate();
         GetStageData();//임시 디버깅
     }
+    /*
     void Generate()
     {            // 문 개수 3, 4, 4 , 5 ,5 , 6 .  
                  // 문 종류 1:1:2:0  /  1:1:1:1 / 1:1:3 / 1:1:2  / 1:1:1:3 / 1:1:2:2
@@ -47,12 +47,8 @@ public class DoorHandler : MonoBehaviour
         }
         GetRandomCarDoor();
     }
+    */
 
-    void GetRandomCarDoor()
-    {
-        _CarDoor = Random.Range(0, Doors.Count); // 문 리스트의 개수중 하나 선택.
-        Doors[_CarDoor].transform.GetChild(0).GetComponent<Door>().ThisDoor = 1; // 자식 도어 코드는 1
-    }
 
     public void MohntiholAction()
     {
@@ -74,9 +70,13 @@ public class DoorHandler : MonoBehaviour
         //아이템 클릭 표시할 텍스트 필요
     }
 
-    public void DoorChecking(int type)
+    public bool DoorChecking(int type)
     {
-
+        if (type == DoorTypes[_CarDoor])
+        {
+            return true;
+        }
+        else return false;
     }
     
     public void GetStageData()
@@ -103,11 +103,13 @@ public class DoorHandler : MonoBehaviour
         {
             DoorTypes.Add(3);
         }
+    
 
         // 랜덤으로 섞기
-        DoorTypes = ShuffleList(DoorTypes); // DoorTypes[0]부터 첫번째문
+        DoorTypes = ShuffleList(DoorTypes); // DoorTypes[0]부터 첫번째문   
+        _CarDoor = Random.Range(0, DoorTypes.Count); // 문중 _CarDoor번째 문이 정답.
 
-       
+
     }
 
     // 리스트를 섞어주는 함수
