@@ -24,6 +24,7 @@ public class DoorUIHandler : MonoBehaviour
     public TMP_Text RabbitText;
     Coroutine rabbitC;
     Coroutine playerC;
+    public GameObject YesNo;
 
     void Awake()
     {
@@ -41,12 +42,14 @@ public class DoorUIHandler : MonoBehaviour
 
     public void StartPlayerText(string text)
     {
+        text = text.Replace("\\n", "\n");
         if (playerC != null)
             StopCoroutine(playerC);
         playerC = StartCoroutine(SetPlayerText(text));
     }
     public void StartRabbitText(string text)
     {
+        text = text.Replace("\\n", "\n");
         if (rabbitC != null)
             StopCoroutine(rabbitC);
         rabbitC = StartCoroutine(SetRabbitText(text));
@@ -123,6 +126,7 @@ public class DoorUIHandler : MonoBehaviour
             icon.transform.localPosition = new Vector2(iconPos[i], 0);
             icon.GetComponent<DoorIcon>().IconIdx = i;
             icon.GetComponent<DoorIcon>().SelectUI();
+            icon.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>($"icon{i+1}");
             DoorIcons[i] = icon;
             Doors[i] = Instantiate(Door, new Vector2(15f, 1.2f), Util.QI, DoorBox.transform);
             Doors[i].GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>($"Door{DoorHandler.DoorH.DoorTypes[i]}");
@@ -180,7 +184,7 @@ public class DoorUIHandler : MonoBehaviour
 
             Doors[i].transform.DOKill();
 
-            float changeTime = 0.8f;
+            float changeTime = 0.6f;
             var tween = Doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime);
             Doors[i].transform.DOScale(scale, changeTime);
             if(i == Doors.Length - 1)
@@ -207,5 +211,22 @@ public class DoorUIHandler : MonoBehaviour
         ChangeSelectDoor();
         yield return new WaitUntil(() => !IsRun);
         Doors[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Door>().OpenDoor();
+    }
+
+    public IEnumerator YesNoEffect(Sprite sprite)
+    {
+        SpriteRenderer renderer = YesNo.GetComponent<SpriteRenderer>();
+        renderer.color = new Color(1f, 1f, 1f, 1f);
+        renderer.sprite = sprite;
+        YesNo.SetActive(true);
+        float fillAmount = 1f;
+
+        while(fillAmount > 0f)
+        {
+            fillAmount -= Time.deltaTime * 2f;
+            renderer.color = new Color(1f, 1f, 1f, fillAmount);
+            yield return null;
+        }
+        YesNo.SetActive(false);
     }
 }

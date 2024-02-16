@@ -35,11 +35,19 @@ public class Card : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (!CardHandler.instance.isUseCard)
+            return;
+        if (DoorUIHandler.DoorUIH.IsRun)
+            return;
         CardHandler.instance.CardMouseDown(this);
     }
 
     void OnMouseUp()
     {
+        if (!CardHandler.instance.isUseCard)
+            return;
+        if (DoorUIHandler.DoorUIH.IsRun)
+            return;
         CardHandler.instance.CardMouseUp(this);
     }
 }

@@ -38,9 +38,29 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = null;
         DoorUIHandler.DoorUIH.DoorIcons[Data.GameData.InGameData.SelectDoorIdx].GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("No");
         DoorOpended = true;
+        StartCoroutine(DoorEffect(Managers.Resource.Load<Sprite>("No")));
+    }
+
+    IEnumerator DoorEffect(Sprite sprite)
+    {
+        float fillAmount = 1f;
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        while (fillAmount > 0)
+        {
+            fillAmount -= Time.deltaTime * 1f;
+            renderer.color = new Color(1f, 1f, 1f, fillAmount);
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.1f);
+        renderer.sprite = sprite;
+        while (fillAmount < 1)
+        {
+            fillAmount += Time.deltaTime * 1f;
+            renderer.color = new Color(1f, 1f, 1f, fillAmount);
+            yield return null;
+        }
     }
 
     public void OnMouseDown()

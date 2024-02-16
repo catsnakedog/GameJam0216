@@ -143,6 +143,8 @@ public class CardHandler : MonoBehaviour
             var targetCard = myCard[i];
 
             targetCard.OriginPRS = originCardPRS[i];
+            if (targetCard == card)
+                targetCard.OriginPRS.pos += new Vector3(0, 0.7f);
             targetCard.MoveTransform(targetCard.OriginPRS, true, 0.7f);
         }
     }
@@ -176,9 +178,9 @@ public class CardHandler : MonoBehaviour
                 targetPos.y -= 0.13f;
                 targetPos.z -= 10 * i;
 
-                if(targetPos.y < -10.5f)
+                if(targetPos.y < -11f)
                 {
-                    targetPos.y = -10.5f;
+                    targetPos.y = -11f;
                 }
 
                 targetRot = Quaternion.Slerp(leftTr.rotation, rightTr.rotation, objLerps[i]);
@@ -245,9 +247,9 @@ public class CardHandler : MonoBehaviour
                 targetPos.y -= 0.13f;
                 targetPos.z -= 10 * i;
 
-                if (targetPos.y < -10.5f)
+                if (targetPos.y < -11f)
                 {
-                    targetPos.y = -10.5f;
+                    targetPos.y = -11f;
                 }
 
                 targetRot = Quaternion.Slerp(leftTr.rotation, rightTr.rotation, objLerps[i]);
