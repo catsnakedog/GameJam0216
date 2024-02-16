@@ -34,7 +34,7 @@ public class DoorIcon : MonoBehaviour
         Data.GameData.InGameData.SelectDoorIdx = IconIdx;
         _selectDoorIdx = Data.GameData.InGameData.SelectDoorIdx;
         SelectUI();
-        DoorUIHandler.DoorFocusUIH.ChangeSelectDoor();
+        DoorUIHandler.DoorUIH.ChangeSelectDoor();
     }
 
     void Update()
