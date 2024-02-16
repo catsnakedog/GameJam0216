@@ -13,6 +13,7 @@ public class DoorUIHandler : MonoBehaviour
     public Button RightDoor;
     private GameObject[] _doors;
     private int beforeSelectDoorIdx;
+    Coroutine coroutine;
 
     void Awake()
     {
@@ -56,7 +57,9 @@ public class DoorUIHandler : MonoBehaviour
 
         Data.GameData.InGameData.SelectDoorIdx = 0;
         beforeSelectDoorIdx = Data.GameData.InGameData.SelectDoorIdx;
-        SetDoorsPos();
+        if(coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = StartCoroutine(SetDoorsPos());
     }
 
     public void ChangeSelectDoor()
@@ -69,21 +72,25 @@ public class DoorUIHandler : MonoBehaviour
                 return;
             }
             beforeSelectDoorIdx++;
-            SetDoorsPos();
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            coroutine = StartCoroutine(SetDoorsPos());
         }
         else if (beforeSelectDoorIdx > Data.GameData.InGameData.SelectDoorIdx)
         {
-            if (beforeSelectDoorIdx <= DoorHandler.DoorH.DoorTypes.Count - 1)
+            if (beforeSelectDoorIdx <= 0)
             {
-                beforeSelectDoorIdx = DoorHandler.DoorH.DoorTypes.Count - 1;
+                beforeSelectDoorIdx = 0;
                 return;
             }
             beforeSelectDoorIdx--;
-            SetDoorsPos();
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            coroutine = StartCoroutine(SetDoorsPos());
         }
     }
 
-    void SetDoorsPos()
+    IEnumerator SetDoorsPos()
     {
         for (int i = 0; i < _doors.Length; i++)
         {
@@ -97,11 +104,14 @@ public class DoorUIHandler : MonoBehaviour
             _doors[i].transform.DOKill();
 
             float changeTime = 0.8f;
-            if (i == _doors.Length - 1)
-                _doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime).OnComplete(ChangeSelectDoor);
-            else
-                _doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime);
+            var tween = _doors[i].transform.DOMove(new Vector3(x, y, 0), changeTime);
             _doors[i].transform.DOScale(scale, changeTime);
+            if(i == _doors.Length - 1)
+            {
+                yield return tween.WaitForCompletion();
+                if (beforeSelectDoorIdx != Data.GameData.InGameData.SelectDoorIdx)
+                    ChangeSelectDoor();
+            }
         }
     }
 }
