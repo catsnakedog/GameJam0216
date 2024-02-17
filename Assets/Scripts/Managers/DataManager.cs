@@ -20,6 +20,7 @@ public class DataManager
 
             _jsonManager.LoadJsonData<SaveData>("SaveData", out gameData.SaveData);
             _jsonManager.LoadJsonData<StageData>("StageData", out gameData.StageData);
+            _jsonManager.LoadJsonData<TextData>("TextData", out gameData.TextData);
 
             go = new GameObject { name = "@Data" };
             UnityEngine.Object.DontDestroyOnLoad(go);

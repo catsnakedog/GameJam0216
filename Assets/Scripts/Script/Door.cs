@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
 
     public void GoatDoorOpen()
     {
-        DoorUIHandler.DoorUIH.StartRabbitText("실망입니다.");
+        DoorUIHandler.DoorUIH.StartRabbitText("실망이야.");
         CardHandler.instance.cardSpawnPoint.transform.position = new Vector2(0, 2);
         GetRandomCard();
         gameObject.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("DoorFail");
@@ -44,22 +44,22 @@ public class Door : MonoBehaviour
         switch (Data.GameData.InGameData.SuccessStack)
         {
             case 1:
-                DoorUIHandler.DoorUIH.StartRabbitText("머리가 장식이 아니였군요.");
+                DoorUIHandler.DoorUIH.StartRabbitText("머리가 장식이 아니였군.");
                 break;
             case 2:
-                DoorUIHandler.DoorUIH.StartRabbitText("잘 하셨습니다.");
+                DoorUIHandler.DoorUIH.StartRabbitText("잘 했어.");
                 break;
             case 3:
-                DoorUIHandler.DoorUIH.StartRabbitText("대단하네요.");
+                DoorUIHandler.DoorUIH.StartRabbitText("대단해.");
                 break;
             case 4:
-                DoorUIHandler.DoorUIH.StartRabbitText("고작 이 정도인가?");
+                DoorUIHandler.DoorUIH.StartRabbitText("고작 이 정도야?");
                 break;
             case 5:
-                DoorUIHandler.DoorUIH.StartRabbitText("당신이라면 해낼 줄 알았습니다.");
+                DoorUIHandler.DoorUIH.StartRabbitText("너라면 해낼 줄 알았어.");
                 break;
             case 6:
-                DoorUIHandler.DoorUIH.StartRabbitText("아주 훌륭합니다.");
+                DoorUIHandler.DoorUIH.StartRabbitText("아주 훌륭해.");
                 break;
         }
         gameObject.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("DoorClear");
@@ -121,7 +121,9 @@ public class Door : MonoBehaviour
         if (DoorUIHandler.DoorUIH.IsRun)
             return;
 
-        if(!_doorhandler.FirstClicked) // 첫번째 클릭이면, 
+        Managers.Sound.Play("Door");
+
+        if (!_doorhandler.FirstClicked) // 첫번째 클릭이면, 
         {
             _doorhandler.MohntiholAction();
             return;

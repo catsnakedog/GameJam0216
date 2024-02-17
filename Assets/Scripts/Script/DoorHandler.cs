@@ -45,7 +45,7 @@ public class DoorHandler : MonoBehaviour
 
     public void MohntiholAction()
     {
-        DoorUIHandler.DoorUIH.StartRabbitText("올바르지 못한 문 하나를 보여드리겠습니다.");
+        DoorUIHandler.DoorUIH.StartRabbitText("좋아 이대로 유지할래? 아니면 바꿀래?");
         while (true)
         {
             _N = Random.Range(0, DoorTypes.Count);
@@ -80,7 +80,6 @@ public class DoorHandler : MonoBehaviour
         //스테이지의 도어 갯수를 센다.
         // doornumber = _stagedata.StageInfo[stagenumber].Door0 + _stagedata.StageInfo[stagenumber].Door1 + _stagedata.StageInfo[stagenumber].Door2 + _stagedata.StageInfo[stagenumber].Door3;
 
-        Data.GameData.InGameData.Stage = 5;
 
         // 도어수에 맞춰서 리스트에 넣는다.
         for(int i =0; i<_stagedata.StageInfo[Data.GameData.InGameData.Stage].Door0;i++)

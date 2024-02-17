@@ -30,12 +30,8 @@ public class CardHandler : MonoBehaviour
         prs = new PRS(new Vector3(), Util.QI, Vector3.zero);
         DOTween.SetTweensCapacity(2000, 100);
 
-        FindAndAddCard(0);
-        FindAndAddCard(1);
-        FindAndAddCard(2);
-        FindAndAddCard(3);
-        FindAndAddCard(4);
-        FindAndAddCard(5);
+        SetOriginOrder();
+        CardAlignment();
     }
 
     public void GameReset()
@@ -63,6 +59,7 @@ public class CardHandler : MonoBehaviour
 
     public void FindAndAddCard(int type)
     {
+        Managers.Sound.Play("Card");
         var cardObject = Instantiate(cardPrefab, cardSpawnPoint.position, Util.QI);
         var card = cardObject.GetComponent<Card>();
 
@@ -126,6 +123,8 @@ public class CardHandler : MonoBehaviour
 
     void TargetCardAlignment(Card card)
     {
+        Managers.Sound.Play("Card");
+
         List<PRS> originCardPRS;
 
         originCardPRS = TargetRoundAlignment(cardLeft, cardRight, myCard.Count, 0.5f, Vector3.one, card);
@@ -259,7 +258,7 @@ public class CardHandler : MonoBehaviour
         {
             if (isUseCard)
             {
-                DoorUIHandler.DoorUIH.StartRabbitText("질문 카드를 내시나요?");
+                DoorUIHandler.DoorUIH.StartRabbitText("질문 카드를 낼 건가?");
                 DoorUIHandler.DoorUIH.StartPlayerText(card.Item.Description);
                 isDrag = true;
             }
@@ -288,7 +287,7 @@ public class CardHandler : MonoBehaviour
                 DoorUIHandler.DoorUIH.SelectBox.SetActive(true);
             }
             isDrag = false;
-            DoorUIHandler.DoorUIH.StartRabbitText("어떤 문을 선택하시겠습니까?");
+            DoorUIHandler.DoorUIH.StartRabbitText("어떤 문을 선택할래?");
             CardAlignment();
         }
     }

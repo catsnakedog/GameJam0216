@@ -73,7 +73,7 @@ public class QuestionHandler : MonoBehaviour
             if (DoorHandler.DoorH.DoorTypes[i] == type)
                 if (DoorHandler.DoorH.DoorTypes[i] == DoorHandler.DoorH.DoorTypes[DoorHandler.DoorH._CarDoor])
                 {
-                    DoorUIHandler.DoorUIH.StartRabbitText("오 예리하시네요.");
+                    DoorUIHandler.DoorUIH.StartRabbitText("오 예리한 걸.");
                     DoorUIHandler.DoorUIH.Maybe(list);
                     return;
                 }
@@ -102,13 +102,13 @@ public class QuestionHandler : MonoBehaviour
                     list.Add(i);
             }
         }
-        DoorUIHandler.DoorUIH.StartRabbitText("운이 좋으시군요.");
+        DoorUIHandler.DoorUIH.StartRabbitText("운이 좋네.");
         DoorUIHandler.DoorUIH.Wrong(list);
     }
 
     public void ShowDoor()
     {
-        DoorUIHandler.DoorUIH.StartRabbitText("잘 고르실 수 있겠죠?");
+        DoorUIHandler.DoorUIH.StartRabbitText("잘 고를 수 있지?");
 
         if (Data.GameData.InGameData.SelectDoorIdx == DoorHandler.DoorH._CarDoor)
             StartCoroutine(DoorUIHandler.DoorUIH.YesNoEffect(Managers.Resource.Load<Sprite>("DoorYes")));

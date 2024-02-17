@@ -42,7 +42,7 @@ public class DoorUIHandler : MonoBehaviour
         SelectBox.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(SelectNo);
         IsRun = false;
 
-        StartRabbitText("어떤 문을 선택하시겠습니까?");
+        StartRabbitText("어떤 문을 선택할래?");
     }
 
     public void SelectYes()
@@ -78,6 +78,7 @@ public class DoorUIHandler : MonoBehaviour
         StringBuilder sb = new();
         foreach(char s in text)
         {
+            Managers.Sound.Play("Chat");
             sb.Append(s);
             PlayerText.text = sb.ToString();
             yield return new WaitForSeconds(0.045f);
@@ -89,6 +90,7 @@ public class DoorUIHandler : MonoBehaviour
         StringBuilder sb = new();
         foreach (char s in text)
         {
+            Managers.Sound.Play("Chat");
             sb.Append(s);
             RabbitText.text = sb.ToString();
             yield return new WaitForSeconds(0.125f);
@@ -195,6 +197,7 @@ public class DoorUIHandler : MonoBehaviour
 
     IEnumerator SetDoorsPos()
     {
+        Managers.Sound.Play("DoorMove");
         IsRun = true;
         for (int i = 0; i < Doors.Length; i++)
         {
@@ -230,6 +233,7 @@ public class DoorUIHandler : MonoBehaviour
 
     public IEnumerator OpenOneWrongDoor()
     {
+        yield return new WaitForSeconds(0.5f);
         IsRun = true;
         ChangeSelectDoor();
         yield return new WaitUntil(() => !IsRun);
@@ -307,13 +311,15 @@ public class DoorUIHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Save();
 
-        StartCoroutine(FadeInAndLoadScene());
+        UI_SceneManager.Instance.ChangeScene("Story");
     }
 
     IEnumerator FadeInAndLoadScene()
     {
         float fillAmount = 0;
         Image image = FadeBox.GetComponent<Image>();
+        image.color = new Color(0f, 0f, 0f, 0f);
+        FadeBox.SetActive(true);
         while (fillAmount < 1)
         {
             fillAmount += Time.deltaTime * 1;

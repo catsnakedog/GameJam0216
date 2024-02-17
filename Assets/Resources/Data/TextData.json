@@ -1,0 +1,886 @@
+﻿{
+   "TextInfo":[
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "으윽…. 여기는?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "아 일어났군!"
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "제가 왜 여기에 있죠? 저는 분명……"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "여기는 중첩 차원 환영한다."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "어? 분명 나는 워프 게이트를 지나고 있었는데…?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "초장거리 워프를 하다 보면 가끔씩 차원끼리 부딪히는 일이 생기지."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "차원끼리 충돌할 때 그 곳에 있던 생명체는 모두 이곳으로 소환되지."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "한 마디로 재수 없는 일에 휘말렸다?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "어 그런 셈이지."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "하……."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "뭐 그래도 사지 멀쩡하게 온 걸 보면 운이 그렇게 나쁜 것도 아니야."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "여기 사는 분인가요?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "나는 이 중첩 차원의 관리자라네."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "저기..그..."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "초면부터 이런 말해서 죄송한데 "
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "엄청 이상하게 생기신 것 같아요..."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "왜 너는 아닌 것 같아?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "애초에 우리가 살아왔던 차원이 다르니까 이상하게 보이는 게 당연하지."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "네? 그거 저 놀리려고 하신 말 아니였어요?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "너는 나를 보고도 그런 말이 나오냐?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "중첩 차원? 어쩌지 나 빨리 돌아가야 하는데..."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "여기서 나가고 싶나?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "나갈 수 있어요?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "올바르지 않은 문들 사이에 숨은 올바른 문을 찾아."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "예? 올바른 문이요?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "여기는 여러 차원이 뒤죽박죽 섞인 곳"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "올바른 문은 여기만의 규칙으로 인해 생겨난 특이한 통로야."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그 곳은 마나가 밀집해 있어 잘 이용하면 이 곳을 탈출할 수 있지."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "하지만 그만큼 리스크도 큰 곳이야."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "흠..."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그래서 거기는 어떻게 하면 찾을 수 있죠?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "너 혹시 몬티 홀 문제를 아나?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "예? 몬티… 뭐라구요?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "아 이건 너네 차원에는 없는 개념인가?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그리 어려운 내용은 아니야. 자 내 설명을 잘 들어."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "너는 내가 가진 3개의 상자 중 하나만 고를 수 있는 상황이라고 가정해보자."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "2개 상자는 아무것도 안 들어있지만 1개 상자는 돈이 들어있어."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "너가 상자를 고르면, 이미 정답을 알고 있는 내가 빈 상자 중 하나를 열거야."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "이 때 너는 다른 상자로 바꿀 수 있는 기회가 주어져."
+ },
+ {
+  "Idx": 0,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그런 방식으로 올바른 문을 찾아야 한다는 것인가요?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "그 머리가 장식은 아닌가보군."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "자 실전으로 배워볼까?"
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "자 여기서 마음에 드는 문 하나만 골라."
+ },
+ {
+  "Idx": 0,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "이 중에 단 한 개만 올바른 문이야."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "저기…."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "왜 그러지?"
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "만약에…만약에 말이에요."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "올바르지 않은 문에 들어가게 되면 어떻게 되나요?"
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "적어도 죽지는 않아."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "선택은 자유야. 뭐 책임은 좀 지겠지만."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "……."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "애초에 저렇게 마나가 밀집된 곳에 들어가는 것도 바람직한 일은 아니야."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "하지만 명심해 방법은 이것밖에 없어."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "한 번 통로로 들어온 이상 다시 통로 밖으로 돌아갈 수는 없어."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "……"
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "이거 받아. 관리자로서 주는 선물이야."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "이게 뭐죠?"
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "문을 찾는데 큰 도움이 될 거야."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "어.. 일단 감사합니다."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그럴 필요 없어. 지금부터는 문이 4개씩 나온다."
+ },
+ {
+  "Idx": 1,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "아니 갑자기 그러시ㅁ..."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그래도 아이템을 이용하면 쉽게 문을 찾을 수 있을 거야."
+ },
+ {
+  "Idx": 1,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그거 횟수 제한 있으니까 조심해라."
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "아니 대체 내가 왜 이런 위험한 일을 해야 하는 거죠?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "하하 중첩 차원이 너무 만만하게 보이니?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "이런 게 어디 있어요!!!"
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "세상에 나 같이 불행한 사람이 또 있을까?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "중첩 차원에 온 사람들 대부분은 사지가 갈갈이 찢겨나가지."
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "지금껏 너 같은 행운아는 본 적도 없는데 지금 기만하시는 거냐?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "하 내가 저딴 걸 도와주고 있었다니."
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "저기"
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "......."
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "토끼....씨?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "제가 뭐라고 불러야 하죠?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "토끼라… 이렇게 불리는 것도 오랜만이군요."
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "투정부려서 죄송합니다."
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "알면 됬다."
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "토끼씨는 도대체 정체가 뭔가요?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "흠…."
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "당신같은 놈들도 도와줘야 하는 불쌍한 관리자?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "토끼씨 말대로면 토끼씨한테도 큰 부담이 갈텐데."
+ },
+ {
+  "Idx": 2,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "저를 왜 도와주시나요?"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "음......"
+ },
+ {
+  "Idx": 2,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "때가 되면 자연스럽게 알게 될 거야."
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "일단 저것부터 해결해."
+ },
+ {
+  "Idx": 3,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "……"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "야. 이상하다는 생각 안 드나?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "예? 어떤 거요?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "이렇게 이동한지도 꽤 되었는데 말이야."
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "배 안 고프냐?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "어?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "왜 지금까지 눈치채지 못 했을까 이상하지? "
+ },
+ {
+  "Idx": 3,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "제가 어떻게 살아있는 거죠?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "다 뛰어난 가이드덕분 아니겠습니까?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "라는 건 거짓말이고 사실은 말이야. 여기 시간이 안 흘러"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "가끔 나도 내가 살아있는지 죽었는지 분간이 안 갈 때가 있지."
+ },
+ {
+  "Idx": 3,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "토끼님. 저 살아서 여기 나갈 수 있을까요?"
+ },
+ {
+  "Idx": 3,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "그렇게 징징거릴 시간에 문부터 제대로 찾아."
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "드디어 이 지긋지긋한 여행도 막바지를 향해가는군."
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "애송이 이제 마지막 통로다."
+ },
+ {
+  "Idx": 4,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "드디어 집에 갈 수 있어."
+ },
+ {
+  "Idx": 4,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "여기까지 데려다 주셔서 감사합니다."
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "꼴에 감사는 제대로 할 줄 아는구만."
+ },
+ {
+  "Idx": 4,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "근데 저 마지막으로 하나 여쭤봐도 되요?"
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "뭐지?"
+ },
+ {
+  "Idx": 4,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "저를 대체 왜 도와 주셨나요?"
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "얘는 가만 보면 똑똑한지 멍청한지 모르겠어."
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "Normal",
+  "Text": "그 동안 수고했다. 너랑 같이 다니는 것도 여기가 끝이다.  "
+ },
+ {
+  "Idx": 4,
+  "Focus": "You",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "가서 마지막 문이나 찾아. 이번 건 특히나 어려울 거야."
+ },
+ {
+  "Idx": 4,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "OneEye",
+  "Text": "마지막 문을 통과하면 저는 어떻게 되나요?"
+ },
+ {
+  "Idx": 4,
+  "Focus": "I",
+  "I_image": "me",
+  "You_image": "Angry",
+  "Text": "글세. 일단 대가부터 치루게 되겠지."
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "거의 모든 올바른 문을 찾았어."
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "이 정도의 마나면 충분히 집에 갈 수 있을 것 같아."
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "텔레포트!"
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "어?"
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "텔레초트!!!!!"
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "말도 안돼 이렇게나 마나가 많은데 "
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "어째서 텔레포트가 발동 안하는 거지?"
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "me",
+  "Text": "꺄악!"
+ },
+ {
+  "Idx": 5,
+  "Focus": "I",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "멍청이. 다른 사람을 함부로 믿다니."
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "나한테 무슨 짓을 한 거야?!"
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "지금 네 몸은 중첩 차원의 마나로 이루어졌다."
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "축하한다. 너는 이 차원의 관리자가 되었다."
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "즉 너는 이 차원을 벗어날 수 없고 나는 이제 이 차원을 벗어날 수 있지."
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "너도 너 같은 호구 하나 잡길 바란다."
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "I_image": "You_reverse",
+  "You_image": "me_reverse",
+  "Text": "나는 간다. 나 대신 여기 잘 지켜라~"
+ },
+ {
+  "Idx": 5,
+  "Focus": "You",
+  "Text": "end(1\/4) 타인은 지옥이다."
+ },
+ {
+  "Idx": 6,
+  "Focus": "I"
+ }
+]
+}

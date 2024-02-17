@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class TextData
 {
     public List<TextInfo> TextInfo;
@@ -17,6 +18,7 @@ public class TextData
     }
 }
 
+[System.Serializable]
 public class TextInfo
 {
     public int Idx;
@@ -38,5 +40,7 @@ public class TextInfo
         Idx = 0;
         Focus = "I";
         I_image = "";
+        you_image = "";
+        Text = "";
     }
 }
