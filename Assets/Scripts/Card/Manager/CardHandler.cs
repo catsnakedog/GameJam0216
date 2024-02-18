@@ -30,6 +30,8 @@ public class CardHandler : MonoBehaviour
         prs = new PRS(new Vector3(), Util.QI, Vector3.zero);
         DOTween.SetTweensCapacity(2000, 100);
 
+        StartCoroutine(GenerateCard());
+
         SetOriginOrder();
         CardAlignment();
     }
@@ -80,6 +82,35 @@ public class CardHandler : MonoBehaviour
 
         SetOriginOrder();
         CardAlignment();
+    }
+
+    public IEnumerator GenerateCard()
+    {
+        foreach(Item item in Data.GameData.InGameData.MyItem)
+        {
+            Managers.Sound.Play("Card");
+            var cardObject = Instantiate(cardPrefab, cardSpawnPoint.position, Util.QI);
+            var card = cardObject.GetComponent<Card>();
+
+            Item targetItem = new Item();
+
+            foreach (Item itemInfo in itemSO.Items)
+            {
+                if (itemInfo.Type == item.Type)
+                {
+                    targetItem = item;
+                    break;
+                }
+            }
+
+            card.Setup(targetItem);
+            myCard.Add(card);
+
+            SetOriginOrder();
+            CardAlignment();
+
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     public void DeleteCard()
@@ -282,6 +313,7 @@ public class CardHandler : MonoBehaviour
                 isUseCard = false;
                 StartCoroutine(FadeOutRemove(card.gameObject));
                 myCard.Remove(card);
+                Data.GameData.InGameData.MyItem.Remove(card.Item);
                 SetOriginOrder();
                 CardAlignment();
                 DoorUIHandler.DoorUIH.SelectBox.SetActive(true);

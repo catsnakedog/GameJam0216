@@ -18,15 +18,42 @@ public class StoryHandler : MonoBehaviour
     List<TextInfo> StageStory;
 
     int idx;
+    bool isActive;
 
     private void Start()
     {
         StageStory = new List<TextInfo>();
         idx = 0;
+        isActive = false;
 
+        int stage = Data.GameData.InGameData.Stage;
+        if (Data.GameData.InGameData.Stage == 5)
+        {
+            switch(Data.GameData.InGameData.SuccessStack)
+            {
+                case 5:
+                    stage = 5;
+                    break;
+                case 4:
+                    stage = 5;
+                    break;
+                case 3:
+                    stage = 6;
+                    break;
+                case 2:
+                    stage = 7;
+                    break;
+                case 1:
+                    stage = 8;
+                    break;
+                case 0:
+                    stage = 9;
+                    break;
+            }
+        }
         foreach(TextInfo info in Data.GameData.TextData.TextInfo)
         {
-            if (info.Idx == Data.GameData.InGameData.Stage)
+            if (info.Idx == stage)
                 StageStory.Add(info);
         }
 
@@ -35,40 +62,52 @@ public class StoryHandler : MonoBehaviour
 
     public void Show()
     {
-        if (textC != null)
+        if (isActive)
         {
+            isActive = false;
             StopCoroutine(textC);
-            PlayerText.text = StageStory[idx].Text;
+            if (StageStory[idx].Focus == "I")
+                PlayerText.text = StageStory[idx].Text;
+            else
+                RabbitText.text = StageStory[idx].Text;
             idx++;
         }
         else
         {
             if(idx >= StageStory.Count)
             {
+                if(Data.GameData.InGameData.Stage == 5)
+                {
+                    UI_SceneManager.Instance.ChangeScene("MainScene");
+                    return;
+                }
                 UI_SceneManager.Instance.ChangeScene("InGame");
                 return;
             }
-            StartCoroutine(ShowText());
+            textC = StartCoroutine(ShowText());
         }
     }
 
     IEnumerator ShowText()
     {
+        isActive = true;
         if (StageStory[idx].Focus == "I")
         {
             PlayerPanel.SetActive(false);
             RabbitPanel.SetActive(true);
             RabbitRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            PlayerRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
         else
         {
             PlayerPanel.SetActive(true);
             RabbitPanel.SetActive(false);
             PlayerRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            RabbitRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
 
-        PlayerRenderer.sprite = Managers.Resource.Load<Sprite>(StageStory[idx].you_image);
-        RabbitRenderer.sprite = Managers.Resource.Load<Sprite>(StageStory[idx].I_image);
+        PlayerRenderer.sprite = Managers.Resource.Load<Sprite>(StageStory[idx].I_image);
+        RabbitRenderer.sprite = Managers.Resource.Load<Sprite>(StageStory[idx].You_image);
 
 
         StringBuilder sb = new();
@@ -83,5 +122,7 @@ public class StoryHandler : MonoBehaviour
             yield return new WaitForSeconds(0.045f);
         }
         idx++;
+
+        isActive = false;
     }
 }

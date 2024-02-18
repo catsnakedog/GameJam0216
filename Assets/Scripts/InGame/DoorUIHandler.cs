@@ -308,7 +308,7 @@ public class DoorUIHandler : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         Save();
 
         UI_SceneManager.Instance.ChangeScene("Story");
