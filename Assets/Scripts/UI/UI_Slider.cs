@@ -15,6 +15,10 @@ public class UI_Slider : MonoBehaviour
     {
         BGMSlider.value = Data.GameData.SaveData.OptionData.BgmVolume;
         SFXSlider.value = Data.GameData.SaveData.OptionData.SfxVolume;
+        GameObject.Find("UI_Option(Clone)").transform.Find("Canvas").GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GameObject.Find("UI_Option(Clone)").transform.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
+        GameObject.Find("UI_Option(Clone)").transform.Find("Canvas").GetComponent<Canvas>().sortingLayerName = "Popup";
+        GameObject.Find("UI_Option(Clone)").transform.Find("Canvas").GetComponent<Canvas>().sortingOrder = 10;
     }
     private void Update()
     {

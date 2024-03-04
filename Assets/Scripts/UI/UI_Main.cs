@@ -37,7 +37,10 @@ public class UI_Main : MonoBehaviour
     public void OptionPressed()
     {
         Managers.Sound.Play("Option");
-        OptionUI = Instantiate(Prefabs, transform);
+        if(GameObject.Find("@Main").transform.childCount > 0)
+            OptionUI = GameObject.Find("@Main").transform.GetChild(0).gameObject;
+        else
+            OptionUI = Instantiate(Prefabs, transform);
         OptionUI.SetActive(true);
         OptionUI.transform.position = new Vector3(0, 0, 0);
         Time.timeScale = 0f;
